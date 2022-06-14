@@ -12,7 +12,7 @@ void counting_sort(int *array, size_t size)
 	size_t max, x, data;
 	int *count_array, *salida;
 
-	if (array == NULL)
+	if (array == NULL || array < 0)
 		return;
 
 	max = maximo(array, size);
