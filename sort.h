@@ -28,4 +28,6 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 int partition(int *array, int low, int high, size_t size);
 void quicksort(int *array, int low, int high, size_t size);
+void counting_sort(int *array, size_t size);
+int maximo(int *array, size_t size);
 #endif
