@@ -13,32 +13,32 @@ void insertion_sort_list(listint_t **list)
 
 	tmp = *list;
 
-	if ((list != NULL)
-	{
-		while (tmp->next != NULL)
-		{
-			if (tmp->n > tmp->next->n)
-			{
-				i = tmp->n;
-				*(int *)&tmp->n = tmp->next->n;
-				*(int *)&tmp->next->n = i;
-				print_list(*list);
+	if (tmp != NULL)
+		return;
 
-				while (tmp->prev != NULL)
+	while (tmp->next != NULL)
+	{
+		if (tmp->n > tmp->next->n)
+		{
+			i = tmp->n;
+			*(int *)&tmp->n = tmp->next->n;
+			*(int *)&tmp->next->n = i;
+			print_list(*list);
+
+			while (tmp->prev != NULL)
+			{
+				if (tmp->prev->n > tmp->n)
 				{
-					if (tmp->prev->n > tmp->n)
-					{
-						i = tmp->prev->n;
-						*(int *)&tmp->prev->n = tmp->n;
-						*(int *)&tmp->n = i;
-						print_list(*list);
-					}
-					else
-						break;
-					tmp = tmp->prev;
+					i = tmp->prev->n;
+					*(int *)&tmp->prev->n = tmp->n;
+					*(int *)&tmp->n = i;
+					print_list(*list);
 				}
+				else
+					break;
+				tmp = tmp->prev;
 			}
-			tmp = tmp->next;
 		}
+		tmp = tmp->next;
 	}
 }
